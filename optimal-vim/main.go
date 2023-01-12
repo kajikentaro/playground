@@ -26,6 +26,7 @@ type Position struct {
 	Character int `json:"character"`
 }
 
+//export optimizeFromJson
 func optimizeFromJson(jsonStr string) string {
 	type OptimizerOutputJson struct {
 		OptimizerOutput
@@ -77,6 +78,7 @@ func main() {
 
 	optIn := OptimizerInput{cursorOrigin, cursorDestination, editorText}
 	optInStr, _ := json.Marshal(optIn)
+	fmt.Println(string(optInStr))
 
 	optOutStr := optimizeFromJson(string(optInStr))
 	fmt.Println(optOutStr)
